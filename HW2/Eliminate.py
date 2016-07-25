@@ -22,6 +22,9 @@ def eliminate(A_, b_):
 	# we will save a tuple (x, y) where x=pivot value, y=pivot index
 	pivots = []
 
+	# free variable
+	free = []
+
 	# i will go through the rows
 	i = 0
 	# while we haven't reached the bottom of A
@@ -33,6 +36,8 @@ def eliminate(A_, b_):
 
 		# if all the values are 0, we will try permutation
 		if not firstNonZero:
+			# first, check solvability
+			checkSolvability(b, i)
 			# j = number of the row to permute
 			j = findPermutationRow(A, i, n)
 			# if no possible permutation rows
@@ -43,6 +48,7 @@ def eliminate(A_, b_):
 			# if we found a permutation row
 			else:
 				# method to switch rows i and j
+				# two arrays because n and m may differ
 				perm_array_A = np.array(range(n))
 				perm_array_A[i], perm_array_A[j] = j, i
 				perm_array_b = np.array(range(m))
@@ -76,6 +82,8 @@ def eliminate(A_, b_):
 				j = findPermutationRow(A, i, n)
 				# if no possible permutation rows
 				if not j:
+					# add i to the free variables array
+					free.append(i)
 					# keep this row, and pivot=firstNonZero
 					pivot = firstNonZero
 					# find the index of the pivot
@@ -97,6 +105,7 @@ def eliminate(A_, b_):
 				# if we found a permutation row
 				else:
 					# method to switch rows i and j
+					# two arrays because n and m may differ
 					perm_array_A = np.array(range(n))
 					perm_array_A[i], perm_array_A[j] = j, i
 					perm_array_b = np.array(range(m))
@@ -106,10 +115,14 @@ def eliminate(A_, b_):
 					# we need to go through the row again, so we don't increment i
 					continue
 
-# TODO: CHECK SOLVABILITY
-
+# TODO: find particular solution
+# TODO: find special solutions
+	
 	# If we got to this point, we have an upper triangular matrix.
-	# Now, we have to do back-substitution
+	print "There are %d special solutions.\n" % (m-len(pivots))
+	# Now, we find a particular solution
+	x_p = np.zeros(m)
+
 #	res = backsubstitution(A, b)
 
 	# Print the original matrix, upper triangular matrix and the solution vector
@@ -118,10 +131,18 @@ def eliminate(A_, b_):
 	print "\nR:\n", A
 	print "d:\n", b
 	print "\nD:\n", pivots
+	print "f:\n", free
 	#print "\nSolution vector:\n", res
 
 	# return the vector with the solution (x)
 #	return res
+
+# Function that checks if the system is solvable (no 0=c)
+def checkSolvability(b, i):
+	# if b[i] is not 0, then there are no solutions
+	if b[i] != 0:
+		print "Failure! There are no solutions."
+		sys.exit(0)
 
 # Function that finds a suitable row for permutation
 def findPermutationRow(A, i, n):
@@ -206,7 +227,27 @@ def checks(A, b):
 	if A.shape[1] != b.shape[0]:
 		print "Dimensions of A and b do not match!"
 		return False
+	# if A has less rows than columns, verify that all entries after n in b are 0
+	if not isSolvable(A, b):
+		print "Failure! There are no solutions."
+		return False
 	# if all checks pass, we can continue
+	return True
+
+# Function that returns a boolean to check whether the system is solvable when n<m
+def isSolvable(A, b):
+	# n is the number of rows
+	n = A.shape[0]
+	# m is the number of columns
+	m = A.shape[1]
+	# if there are "not enough" rows
+	if n < m:
+		# for the indexes after n
+		for i in range(n, m):
+			# if b[i] is not zero, the system is not solvable
+			if b[i] != 0:
+				return False
+	# all values of b after n are 0, we can continue
 	return True
 
 # Function that returns a boolean to check whether matrix b is a vector (nx1)
