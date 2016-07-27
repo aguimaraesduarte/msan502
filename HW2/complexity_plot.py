@@ -1,5 +1,6 @@
 from pylab import *
 import matplotlib.pyplot as pyplot
+import math
 
 n = [2**x for x in range(2,13)]
 times = [0.001918, 0.006392, 0.015157,
@@ -22,3 +23,10 @@ ax.set_ylabel('time (s)', fontsize=16)
 fig.savefig('complexity.pdf', format="pdf")
 
 show()
+
+delta_y = math.log10(times[-1]) - math.log10(times[-6])
+delta_x = math.log10(n[-1]) - math.log10(n[-6])
+k = delta_y / delta_x
+
+print k
+print "The time complexity is O(n^%d)" % k

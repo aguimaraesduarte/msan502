@@ -15,7 +15,6 @@ def randomMatrix(n, e):
 	# Return the matrix
 	return R
 
-
 times_eliminate = []
 for k in range(2, 13):
 	times_eliminate.append([])

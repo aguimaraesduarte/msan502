@@ -125,27 +125,27 @@ def eliminate(A_, b_):
 	# if no special solutions, then the system is perfect
 	# we can do back substitution
 	if ss == 0:
-		#print "There is only one solution.\n"
+#		print "There is only one solution.\n"
 		res = backsubstitution(A, b)
 	# if there are special solutions, since the program would have exited
 	# if there were no solutions, then we must have infinitely many solutions
 	else:
-		print "There are infinite solutions.\n"
+		print "There are infinitely many solutions.\n"
 		# calculate solutions here
 # TODO: find particular solution
 # TODO: find special solutions
 		res = []
 
 	# Print the original matrix, upper triangular matrix and the solution vector
-	'''
-	print "Original matrix A:\n", A_
-	print "Original matrixb:\n", b_
-	print "\nUpper triangle R:\n", A
-	print "New matrix d:\n", b
-	print "\nPivots matrix D:\n", pivots
-	print "Free veriables:\n", free
-	print "\nSolution vector X:\n", res
-	'''
+	
+#	print "Original matrix A:\n", A_
+#	print "Original matrixb:\n", b_
+#	print "\nUpper triangle R:\n", A
+#	print "New matrix d:\n", b
+#	print "\nPivots matrix D:\n", pivots
+#	print "Free veriables:\n", free
+#	print "\nSolution vector X:\n", res
+
 	# return the vector with the solution (x)
 	return res
 
