@@ -28,5 +28,5 @@ delta_y = math.log10(times[-1]) - math.log10(times[-6])
 delta_x = math.log10(n[-1]) - math.log10(n[-6])
 k = delta_y / delta_x
 
-print k
+print "k = %f" % k
 print "The time complexity is O(n^%d)" % k
