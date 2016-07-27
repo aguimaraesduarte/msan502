@@ -117,6 +117,9 @@ def eliminate(A_, b_):
 					continue
 	
 	# If we got to this point, we have an upper triangular matrix.
+	if n < m:
+		for f in range(n, m):
+			free.append(f)
 
 	# ss: number of special solutions
 	ss = m-len(pivots)
@@ -143,7 +146,7 @@ def eliminate(A_, b_):
 #	print "\nUpper triangle R:\n", A
 #	print "New matrix d:\n", b
 #	print "\nPivots matrix D:\n", pivots
-#	print "Free veriables:\n", free
+#	print "Free variables:\n", free
 #	print "\nSolution vector X:\n", res
 
 	# return the vector with the solution (x)
@@ -275,16 +278,19 @@ def isVector(b):
 
 '''
 A = np.array([[1,3,0,2],
-	           #[0,0,1,4],
-	           [1,3,0,3],
+	           [0,0,1,4], # if comment, infinitely many solutions
+	           [1,3,0,3], #if comment, no solutions
 	           [1,4,1,6]])
 b = np.array([1,6,7,0])
-#A = np.array([[1,1,2,3],
-#	          [2,2,8,10],
-#	          [3,3,10,13]])
-#b = np.array([0,0,0,0])
 eliminate(A, b)
+#'''
 '''
+A = np.array([[1,1,2,3],
+	          [2,2,8,10],
+	          [3,3,10,13]])
+b = np.array([0,0,0,0])
+eliminate(A, b)
+#'''
 '''
 # Compare this algorithm to the work done on Problem 1
 A = np.arange(1, 101)
