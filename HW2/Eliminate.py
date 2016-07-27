@@ -1,7 +1,7 @@
 import numpy as np
 import sys
 
-# Function that will perform the elimination algorithm to solve A_x = b_
+# Function that will perform the elimination algorithm to solve A_*x = b_
 def eliminate(A_, b_):
 	# perform checks to see if we can proceed with the algorithm
 	if not checks(A_, b_):
@@ -22,7 +22,7 @@ def eliminate(A_, b_):
 	# we will save a tuple (x, y) where x=pivot value, y=pivot index
 	pivots = []
 
-	# free variable
+	# save the free variables (col number)
 	free = []
 
 	# i will go through the rows
@@ -63,6 +63,7 @@ def eliminate(A_, b_):
 			if expectedPivot == firstNonZero:
 				pivot = expectedPivot
 				# add the pivot to the pivots list
+				# (value, row_number)
 				pivots.append((pivot, i))
 				# for all other rows, perform elimination
 				for ii in range(i+1, n):
@@ -114,28 +115,39 @@ def eliminate(A_, b_):
 					b = b[perm_array_b]
 					# we need to go through the row again, so we don't increment i
 					continue
-
-# TODO: find particular solution
-# TODO: find special solutions
 	
 	# If we got to this point, we have an upper triangular matrix.
-	print "There are %d special solutions.\n" % (m-len(pivots))
-	# Now, we find a particular solution
-	x_p = np.zeros(m)
 
-#	res = backsubstitution(A, b)
+	# ss: number of special solutions
+	ss = m-len(pivots)
+#	print "There are %d special solutions.\n" % ss
+
+	# if no special solutions, then the system is perfect
+	# we can do back substitution
+	if ss == 0:
+		#print "There is only one solution.\n"
+		res = backsubstitution(A, b)
+	# if there are special solutions, since the program would have exited
+	# if there were no solutions, then we must have infinitely many solutions
+	else:
+		print "There are infinite solutions.\n"
+		# calculate solutions here
+# TODO: find particular solution
+# TODO: find special solutions
+		res = []
 
 	# Print the original matrix, upper triangular matrix and the solution vector
-	print "A:\n", A_
-	print "b:\n", b_
-	print "\nR:\n", A
-	print "d:\n", b
-	print "\nD:\n", pivots
-	print "f:\n", free
-	#print "\nSolution vector:\n", res
-
+	'''
+	print "Original matrix A:\n", A_
+	print "Original matrixb:\n", b_
+	print "\nUpper triangle R:\n", A
+	print "New matrix d:\n", b
+	print "\nPivots matrix D:\n", pivots
+	print "Free veriables:\n", free
+	print "\nSolution vector X:\n", res
+	'''
 	# return the vector with the solution (x)
-#	return res
+	return res
 
 # Function that checks if the system is solvable (no 0=c)
 def checkSolvability(b, i):
@@ -166,8 +178,8 @@ def findPermutationRow(A, i, n):
 
 # Function that performs backward substitution. T is an upper triangular matrix
 def backsubstitution(T, b):
-	# n is the number of rows and columns
-	n = len(T)
+	# n is the number of rows
+	n = T.shape[0]
 	# define the vector of solutions (x). It is filled with 0s to begin
 	sol = np.zeros(n)
 	# for every row, starting from the last one
@@ -261,6 +273,7 @@ def isVector(b):
 	# if every row has only one element (ie is not an array), b is a vector
 	return True
 
+'''
 A = np.array([[1,3,0,2],
 	           #[0,0,1,4],
 	           [1,3,0,3],
@@ -271,7 +284,7 @@ b = np.array([1,6,7,0])
 #	          [3,3,10,13]])
 #b = np.array([0,0,0,0])
 eliminate(A, b)
-
+'''
 '''
 # Compare this algorithm to the work done on Problem 1
 A = np.arange(1, 101)
@@ -290,20 +303,11 @@ x2_eliminate = eliminate(A, v) # no solutions or infinitely many solutions
 # Tests
 '''
 # Simple (3x3) test
-A = [[2,3,1],[4,7,5],[0,-2,2]]
-b = [8,20,0]
-eliminate(A,b)
+A = np.array([[2,3,1],[4,7,5],[-4,3,1]])
+b = np.array([8,20,2])
+print eliminate(A,b)
 #[2,1,1]
 #'''
-'''
-# Verify function isSquare
-A = np.arange(1, 101)
-A = A.reshape((10, 10))
-print isSquare(A)
-B = np.arange(1, 81)
-B = B.reshape((8, 10))
-print isSquare(B)
-'''
 '''
 # Verify isVector
 A = np.ones(10)
@@ -311,7 +315,7 @@ print isVector(A)
 B = np.arange(1, 101)
 B = B.reshape((10, 10))
 print isVector(B)
-'''
+#'''
 '''
 # Verify checks
 A = np.arange(1, 101)
@@ -324,7 +328,7 @@ print checks(B, b)
 c = np.ones(5)
 print checks(A, c)
 print checks(A, B)
-'''
+#'''
 '''
 # Verify the call to checks()
 A = np.arange(1, 101)
@@ -334,13 +338,8 @@ B = np.arange(1, 81)
 B = B.reshape((8, 10))
 c = np.ones(5)
 # uncheck the one to test
-eliminate(A, b)
-#eliminate(B, b)
-#eliminate(A, c)
-#eliminate(A, B)
-'''
-
-
-
-
-
+eliminate(A, b) #infinitely many solutions
+#eliminate(B, b) #no solutions
+#eliminate(A, c) #dimensions don't match
+#eliminate(A, B) #b is not a vector
+#'''
