@@ -18,6 +18,11 @@ xhat = np.dot(AtranspA_invAtransp, b) #[C, D]
 print "C (intercept) = %1.3f" % xhat[0]
 print "D (slope) = %1.3f" % xhat[1]
 
+e = b - np.dot(A, xhat)
+enorm = np.linalg.norm(b-np.dot(A, xhat))
+
+print "e (error) = %1.3f" % enorm
+
 fig = plt.figure()
 plt.plot(fr.Oyster_Weight_g, fr.Oyster_Volume_cc, "b+")
 plt.plot(fr.Oyster_Weight_g, xhat[0] + xhat[1]*fr.Oyster_Weight_g, color="black")

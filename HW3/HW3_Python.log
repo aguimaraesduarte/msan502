@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.7.19)  1 AUG 2016 19:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.7.19)  1 AUG 2016 21:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1068,69 +1068,69 @@ File: pop_reg.png Graphic file (type png)
  <use pop_reg.png>
 Package pdftex.def Info: pop_reg.png used on input line 154.
 (pdftex.def)             Requested size: 469.75385pt x 352.31538pt.
- [2 <./pop_reg.png>] <nba_plain.png, id=38, 578.16pt x 433.62pt>
+ [2 <./pop_reg.png>] <nba_plain.png, id=39, 578.16pt x 433.62pt>
 File: nba_plain.png Graphic file (type png)
  <use nba_plain.png>
-Package pdftex.def Info: nba_plain.png used on input line 167.
+Package pdftex.def Info: nba_plain.png used on input line 169.
 (pdftex.def)             Requested size: 469.75385pt x 352.31538pt.
 
-<nba_reg.png, id=40, 578.16pt x 433.62pt>
+<nba_reg.png, id=41, 578.16pt x 433.62pt>
 File: nba_reg.png Graphic file (type png)
  <use nba_reg.png>
-Package pdftex.def Info: nba_reg.png used on input line 182.
+Package pdftex.def Info: nba_reg.png used on input line 184.
 (pdftex.def)             Requested size: 469.75385pt x 352.31538pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[3 <./nba_plain.png>] <TV_plain.png, id=50, 578.16pt x 433.62pt>
+[3 <./nba_plain.png>] <TV_plain.png, id=51, 578.16pt x 433.62pt>
 File: TV_plain.png Graphic file (type png)
 
 <use TV_plain.png>
-Package pdftex.def Info: TV_plain.png used on input line 195.
+Package pdftex.def Info: TV_plain.png used on input line 199.
 (pdftex.def)             Requested size: 469.75385pt x 352.31538pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<TV_reg.png, id=52, 578.16pt x 433.62pt>
+<TV_reg.png, id=53, 578.16pt x 433.62pt>
 File: TV_reg.png Graphic file (type png)
  <use TV_reg.png>
-Package pdftex.def Info: TV_reg.png used on input line 210.
+Package pdftex.def Info: TV_reg.png used on input line 214.
 (pdftex.def)             Requested size: 469.75385pt x 352.31538pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[4 <./nba_reg.png>] <30oysters_plain.png, id=64, 578.16pt x 433.62pt>
+[4 <./nba_reg.png>] <30oysters_plain.png, id=65, 578.16pt x 433.62pt>
 File: 30oysters_plain.png Graphic file (type png)
 
 <use 30oysters_plain.png>
-Package pdftex.def Info: 30oysters_plain.png used on input line 225.
+Package pdftex.def Info: 30oysters_plain.png used on input line 231.
 (pdftex.def)             Requested size: 469.75385pt x 352.31538pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<30oysters_reg.png, id=66, 578.16pt x 433.62pt>
+<30oysters_reg.png, id=67, 578.16pt x 433.62pt>
 File: 30oysters_reg.png Graphic file (type png)
  <use 30oysters_reg.png>
-Package pdftex.def Info: 30oysters_reg.png used on input line 240.
+Package pdftex.def Info: 30oysters_reg.png used on input line 246.
 (pdftex.def)             Requested size: 469.75385pt x 352.31538pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 247.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 255.
 [5 <./TV_plain.png>] [6 <./TV_reg.png>] [7 <./30oysters_plain.png>] [8 <./30oys
 ters_reg.png>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 247.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 255.
  (./HW3_Python.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 247.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 247.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 255.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 255.
 Package rerunfilecheck Info: File `HW3_Python.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 247.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 255.
  ) 
 Here is how much of TeX's memory you used:
  14300 strings out of 494953
@@ -1141,7 +1141,7 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  31i,7n,35p,638b,341s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/lm/lm-ec.enc}{/usr/share/texmf/fonts/enc/dv
-ips/lm/lm-rm.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/share
+ips/lm/lm-mathsy.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share
 /texmf/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf/fonts/enc/dvips/lm/lm
 -mathex.enc}</usr/share/texmf/fonts/type1/public/lm/lmbx10.pfb></usr/share/texm
 f/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf/fonts/type1/public/lm/lmex
@@ -1150,12 +1150,13 @@ ts/type1/public/lm/lmmi7.pfb></usr/share/texmf/fonts/type1/public/lm/lmr10.pfb>
 </usr/share/texmf/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf/fonts/type1
 /public/lm/lmr5.pfb></usr/share/texmf/fonts/type1/public/lm/lmr7.pfb></usr/shar
 e/texmf/fonts/type1/public/lm/lmri10.pfb></usr/share/texmf/fonts/type1/public/l
-m/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy7.pfb></usr/share/texm
-f/fonts/type1/public/lm/lmtt10.pfb>
-Output written on HW3_Python.pdf (8 pages, 497659 bytes).
+m/lmri12.pfb></usr/share/texmf/fonts/type1/public/lm/lmsy10.pfb></usr/share/tex
+mf/fonts/type1/public/lm/lmsy7.pfb></usr/share/texmf/fonts/type1/public/lm/lmtt
+10.pfb>
+Output written on HW3_Python.pdf (8 pages, 501713 bytes).
 PDF statistics:
- 148 PDF objects out of 1000 (max. 8388607)
- 107 compressed objects within 2 object streams
+ 152 PDF objects out of 1000 (max. 8388607)
+ 110 compressed objects within 2 object streams
  22 named destinations out of 1000 (max. 500000)
  10281 words of extra memory for PDF output out of 12000 (max. 10000000)
 

@@ -158,6 +158,8 @@ If we draw this line on top of the data, we get the image in figure \ref{pop_reg
 
 The fit that we computed seems to be what we would expect.
 
+The error $\textbf{e}$ is found with the equation $\textbf{e} = \textbf{b} - A\widehat{\textbf{x}}$. In this case, we get $||\textbf{e}||^2 = 7.268 \cdot 10^7$.
+
 \newpage
 \subsection*{nba.txt}
 This file contains information concerning team winning percentage in basketball games ($y$) as a function of PM (the average point difference over all that team's games) ($x$). Plotting $y$ against $x$, we get the graph seen in figure \ref{nba_plain}. We can see that a linear regression seems to be a likely candidate for regression.
@@ -186,6 +188,8 @@ If we draw this line on top of the data, we get the image in figure \ref{nba_reg
 
 The fit that we computed seems to be what we would expect.
 
+The error $\textbf{e}$ is found with the equation $\textbf{e} = \textbf{b} - A\widehat{\textbf{x}}$. In this case, we get $||\textbf{e}||^2 = 0.215$.
+
 \newpage
 \subsection*{TVlife.txt}
 This file contains information concerning life expectancy ($y$) as a function of televisions per thousand people ($x$). Plotting $y$ against $x$, we get the graph seen in figure \ref{TV_plain}. In this case, linear regression does not seem like the best candidate for regression. Maybe a polynomial regression would work better in this case. But we will proceed with linear regression for this problem.
@@ -213,6 +217,8 @@ If we draw this line on top of the data, we get the image in figure \ref{TV_reg}
 \end{figure}
 
 The linear fit seems adequate, but a polynomial regression would produce a better result in this particular case.
+
+The error $\textbf{e}$ is found with the equation $\textbf{e} = \textbf{b} - A\widehat{\textbf{x}}$. In this case, we get $||\textbf{e}||^2 = 37.655$.
 
 \newpage
 \subsection*{30oysters.txt}
@@ -243,5 +249,7 @@ If we draw this line on top of the data, we get the image in figure \ref{30oyste
 \end{figure}
 
 The fit that we computed seems to be what we would expect.
+
+The error $\textbf{e}$ is found with the equation $\textbf{e} = \textbf{b} - A\widehat{\textbf{x}}$. In this case, we get $||\textbf{e}||^2 = 0.758$.
 
 \end{document}
