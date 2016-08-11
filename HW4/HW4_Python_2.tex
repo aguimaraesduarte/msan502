@@ -1,0 +1,257 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{listings}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\PassOptionsToPackage{usenames,dvipsnames}{color} % color is loaded by hyperref
+\hypersetup{unicode=true,
+            pdftitle={Untitled},
+            pdfauthor={Andre Guimaraes Duarte},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{{#1}}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\ImportTok}[1]{{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{{#1}}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{{#1}}}}
+\newcommand{\BuiltInTok}[1]{{#1}}
+\newcommand{\ExtensionTok}[1]{{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{{#1}}}
+\newcommand{\RegionMarkerTok}[1]{{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{{#1}}}}
+\newcommand{\NormalTok}[1]{{#1}}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+  \title{MSAN 502 - Homework 4}
+  \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+  \author{Andre Guimaraes Duarte}
+  \preauthor{\centering\large\emph}
+  \postauthor{\par}
+  \predate{\centering\large\emph}
+  \postdate{\par}
+  \date{August 10, 2016}
+
+
+
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+\begin{document}
+\maketitle
+
+\section*{Google PageRank}
+\subsection*{Wiki-Vote}
+The python file corresponding to this part of the homework is \texttt{wiki.py}.
+
+In this exercise, we wish to analyze a connected network graph using the pagerank algorithm. For this purpose, I chose to use the \textit{Wikipedia vote network} found on \url{http://snap.stanford.edu/data/wiki-Vote.html}. This dataset contains all the Wikipedia voting data from the day Wikipedia was launched until January 2008. In this network, nodes represent unique Wikipedia users. A directed edge from node i to node j represents that user i voted on user j. In total, there are 7115 nodes representing users, and 103689 edges representing votes. For this dataset, pagerank will allow us to see which Wikipedia user is the most important with regards to voting. The dataset is found in the text file \texttt{Wiki-Vote.txt}.
+
+Note: Since the 7115 nodes are not perfectly labeled $1 - 7115$, and it would take a lot of work to uniquely replace the values with a perfect range, I decided to keep the original labels, which go from 1 to 8297. Consequently, my matrices are $8297 \times 8297$ instead of $7115 \times 7115$ (but this is ok).
+
+I used a custom python code in order to parse the data set and construct the adjacency matrix $A$. My code goes through the edges in the text file and sets a value of $1$ for the corresponding entry in $A$. Then, I make A column-stochastic in a few steps:
+
+\begin{itemize}
+\item first, I transpose the matrix $A$, because it is easier to work on rows;
+\item then, I divide each row by the sum of its entries, so $A^T$ is row-stochastic;
+\item if the sum of a row is zero, I set the diagonal entry to $1$;
+\item finally, I transpose the matrix in order to get $A$ again.
+\end{itemize}
+
+At the end of this process, $A$ is column-stochastic.
+
+The following step consists of calculating the Google Matrix$^{TM}$ $M = (1-\alpha)A + \alpha B$, as seen in class ($\alpha = 0.15$).
+
+Using \texttt{linalg} functions in \texttt{numpy}, it is easy (albeit time-consuming!) to compute the eigenvalues and eigenvectors of A and M. In the end, we obtain an eigenvalue $\lambda = 1$.  Note: The exact value for $\lambda$ computed by python is $0.99999999999999956$, which we consider equal to $1$ (there are floating-point approximation errors for example).
+
+The pagerank vector, the eigenvector associated to this eigenvalue, is 8297-dimensional, so I won't print is here. However, I did compute the sorted indices of this vector in order to see the 10 first elements for several values of $\alpha$, as shown in the table below.
+
+We can verify that the sum of all the values in the pagerank vector is equal to $1$. Note: The exact value for this sum as calculated by python is $1.0000000000001377$, which we consider equal to $1$ for the same reasons as previously.
+
+\begin{center}
+\resizebox{\textwidth}{!}{\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\multicolumn{2}{|c|}{$\alpha = 0$} & \multicolumn{2}{|c|}{$\alpha = 0.15$} & \multicolumn{2}{c|}{$\alpha = 0.5$} & \multicolumn{2}{c|}{$\alpha = 0.75$} & \multicolumn{2}{c|}{$\alpha = 1$}\\
+\hline
+ranked nodes & value & ranked nodes & value & ranked nodes & value & ranked nodes & value & ranked nodes & value\\
+\hline
+8211 & 1.0 & 2624 & 0.0078391 & 2469 & 0.003098 & 4036 & 0.001744 & 4036 & 0.000121\\
+0    & 0.0 & 2469 & 0.0060250 & 2624 & 0.002926 & 2469 & 0.001504 & 2469 & 0.000121\\
+1    & 0.0 & 7552 & 0.0051800 & 4036 & 0.002519 & 2624 & 0.001229 & 14   & 0.000121\\
+2    & 0.0 & 1185 & 0.0048590 & 1185 & 0.002480 & 1185 & 0.001225 & 2236 & 0.000121\\
+3    & 0.0 & 7619 & 0.0046120 & 8292 & 0.001968 & 14   & 0.001173 & 1185 & 0.000121\\
+4    & 0.0 & 5411 & 0.0045810 & 7552 & 0.001842 & 2236 & 0.001053 & 2624 & 0.000121\\
+5    & 0.0 & 7631 & 0.0045540 & 4874 & 0.001842 & 8292 & 0.000944 & 664  & 0.000121\\
+6    & 0.0 & 4874 & 0.0044730 & 213  & 0.001839 & 213  & 0.000884 & 6773 & 0.000121\\
+7    & 0.0 & 6831 & 0.0042210 & 7619 & 0.001809 & 4874 & 0.000845 & 8292 & 0.000121\\
+8    & 0.0 & 2065 & 0.0040960 & 14   & 0.001796 & 7619 & 0.000796 & 2653 & 0.000121\\
+\hline
+\end{tabular}}
+\end{center}
+
+For $\alpha = 0$, only matrix $A$ is in play, and the eigenvector is $(1, 0, 0 \ldots)$, where the highest-ranked node is $8211$. This means that the steady-state is solely on this node. In the end, this user has sole influence on the votes.
+
+With $\alpha = 0.15$, we can see that now all nodes (only the first 10 are displayed) have steady-stae probabilities and are ranked. Node $2624$ is the most influencial in Wikipedia votes from its inception until January 2008.
+
+When $\alpha = 0.5$, we can see that the ranking is different from the previous one. Node $2624$ is now in second place, and $2469$ is the user with most influence. We can also see that the dispersion in values is now smaller.
+
+With $\alpha = 0.75$, the ranking has again changed, with node $4036$ taking the first place. Matrix $B$ has a bigger influence than $A$, and so the values are converging toward a uniform distribution.
+
+When $\alpha = 1$, only matrix $B$ is in play, and we can see that the steady-state is uniform. ALl nodes have the same weight equal to $\frac{1}{8297} = 0.000121$.
+
+
+Since this dataset is very large and computing the eigenvalues and eigenvectors takes a long time, I also applied this program on a smaller dataset.
+
+\subsection*{Karate}
+In order to test varying values for $\alpha$, I also applied the pagerank algorithm to the \texttt{karate} dataset, found on \url{http://www-personal.umich.edu/~mejn/netdata/}. This dataset is a social network of friendships between 34 members of a karate club at a US university in the 1970s.
+
+I had to format the data in away that the python code I wrote would work for this data, and the resulting file is \texttt{karate.csv}. I analyze it using the file \texttt{karate.py}.
+
+The table below shows the nodes according to pagerank for several values of $\alpha$: 
+
+\begin{center}
+\resizebox{\textwidth}{!}{\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\multicolumn{2}{|c|}{$\alpha = 0$} & \multicolumn{2}{|c|}{$\alpha = 0.15$} & \multicolumn{2}{c|}{$\alpha = 0.5$} & \multicolumn{2}{c|}{$\alpha = 0.75$} & \multicolumn{2}{c|}{$\alpha = 1$}\\
+\hline
+ranked nodes & value & ranked nodes & value & ranked nodes & value & ranked nodes & value & ranked nodes & value\\
+\hline
+ 0 & 1.0 & 0  &  0.485245 & 0  & 0.229594 &  0 & 0.109926 & 0 & 0.029412\\
+ 1 & 0.0 & 23 &  0.071663 & 23 &  0.052955 &  2 & 0.044278 & 2 & 0.029412\\
+ 2 & 0.0 & 24 &  0.060736 & 1  & 0.048818 &  1 & 0.043845 & 1 & 0.029412\\
+ 3 & 0.0 & 26 &  0.045022 & 24 &  0.046757 & 23 & 0.040740 & 23 & 0.029412\\
+ 4 & 0.0 & 20 &  0.033269 & 2  & 0.046406 & 24 & 0.037721 & 24 & 0.029412\\
+ 5 & 0.0 & 15 &  0.033269 & 26 &  0.038190 & 26 & 0.033660 & 26 & 0.029412\\
+ 6 & 0.0 & 18 &  0.033269 & 15 &  0.031653 & 14 & 0.030523 & 5 & 0.029412\\
+ 7 & 0.0 & 22 &  0.033269 & 18 &  0.031653 & 15 & 0.030523 & 14 & 0.029412\\
+ 8 & 0.0 & 14 &  0.033269 & 20 &  0.031653 & 18 & 0.030523 & 15 & 0.029412\\
+ 9 & 0.0 & 1  &  0.025904 & 14 &  0.031653 & 20 & 0.030523 & 18 & 0.029412\\
+10 & 0.0 & 2  &  0.022129 & 22 & 0.031653 & 22 & 0.030523 & 20 & 0.029412\\
+11 & 0.0 & 5  &  0.009318 & 5 & 0.023897 & 5 & 0.028722 & 22 & 0.029412\\
+12 & 0.0 & 3  &  0.008209 & 3 & 0.022113 & 3 & 0.027594 & 3 & 0.029412\\
+13 & 0.0 & 4  &  0.007443 & 4 & 0.020221 & 4 & 0.025965 & 4 & 0.029412\\
+14 & 0.0 & 8  &  0.007111 & 8 & 0.019783 & 8 & 0.025753 & 8 & 0.029412\\
+15 & 0.0 & 6  &  0.006287 & 6 & 0.018382 & 6 & 0.024816 & 6 & 0.029412\\
+16 & 0.0 & 28 &   0.005693 & 28 & 0.017117 & 28 & 0.023814 & 28 & 0.029412\\
+17 & 0.0 & 25 &   0.005472 & 25 & 0.016684 & 25 & 0.023490 & 25 & 0.029412\\
+18 & 0.0 & 29 &   0.004990 & 29 & 0.015827 & 29 & 0.022892 & 29 & 0.029412\\
+19 & 0.0 & 30 &   0.004990 & 30 & 0.015827 & 30 & 0.022892 & 30 & 0.029412\\
+20 & 0.0 & 31 &   0.004990 & 31 & 0.015827 & 31 & 0.022892 & 31 & 0.029412\\
+21 & 0.0 & 32 &   0.004632 & 32 & 0.015138 & 9 & 0.022383 & 9 & 0.029412\\
+22 & 0.0 & 27 &   0.004632 & 9 & 0.015138 & 13 & 0.022383 & 13 & 0.029412\\
+23 & 0.0 & 9  &  0.004632 & 13 & 0.015138 & 19 & 0.022383 & 19 & 0.029412\\
+24 & 0.0 & 13 &   0.004632 & 19 & 0.015138 & 27 & 0.022383 & 27 & 0.029412\\
+25 & 0.0 & 19 &   0.004632 & 27 & 0.015138 & 32 & 0.022383 & 32 & 0.029412\\
+26 & 0.0 & 7  &  0.004412 & 7 & 0.014706 & 7 & 0.022059 & 7 & 0.029412\\
+27 & 0.0 & 10 &   0.004412 & 10 & 0.014706 & 10 & 0.022059 & 10 & 0.029412\\
+28 & 0.0 & 11 &   0.004412 & 11 & 0.014706 & 11 & 0.022059 & 11 & 0.029412\\
+29 & 0.0 & 12 &   0.004412 & 12 & 0.014706 & 12 & 0.022059 & 12 & 0.029412\\
+30 & 0.0 & 16 &   0.004412 & 16 & 0.014706 & 16 & 0.022059 & 16 & 0.029412\\
+31 & 0.0 & 17 &   0.004412 & 17 & 0.014706 & 17 & 0.022059 & 17 & 0.029412\\
+32 & 0.0 & 21 &   0.004412 & 21 & 0.014706 & 21 & 0.022059 & 21 & 0.029412\\
+33 & 0.0 & 33 &   0.004412 & 33 & 0.014706 & 33 & 0.022059 & 33 & 0.029412\\
+\hline
+\end{tabular}}
+\end{center}
+
+We can see that the ranking of the nodes varies with $\alpha$. When $\alpha$ is zero, we are effectively computing the pagerank vector on the matrix $A$. We can see that the steady state is solely on the node $0$, which has weight $1$ whereas all other nodes have weigth $0$. By doing a linear combination with $B$, all nodes will have an importance in the final steady state.
+
+With $\alpha = 0.15$, node $0$ has a very high value compared to all the other nodes, but now all nodes have values in the pagerank vector. We can also see that the last 20 nodes have very similar low weights.
+
+When $\alpha = 0.5$, the weight is better distributed along the nodes. Node $0$ goes from a value of $0.485245$ to $0.229594$. In addition, the bottom-ranked nodes see their values increase. We can also see that the order of the nodes has changed, especially towards the tops of the table.
+
+With $\alpha = 0.75$, the uniform matrix $B$ has more weight than $A$, and we can see that the values for the nodes are converging toward $\frac{1}{34} = 0.029412$. Node $0$ is still at the top of the ranking, but the difference between its value and the second-ranked nodeś value is significantly less than for $\alpha = 0.15$.
+
+When $\alpha = 1$, we can see that the pagerank is run only on $B$, and all nodes have the same rank and the same value of $\frac{1}{34} = 0.029412$. The steady-state is uniform across the nodes.
+
+\subsection*{Conclusion}
+In this exercise, we have implemented Google's Matrix$^{TM}$ to a connected graph in order to compute the pagerank (eigen)vector asociated to $\lambda = 1$. We have applied this algorithm to two distinct datasets, one large and one small, and have seen that it worked in both cases rather well. We were able to rank the nodes in each case by their importance in the network. For the small dataset, we were in addition able to vary the value of $\alpha$ and see its influence on the resulting pagerank vector. The more $\alpha$ is big, the more the pagerank vector will be uniform. According to Google, the optimal value for $\alpha$ is $0.15$, so $B$ introduces a little bit of stochasticity to the system, but not too much.
+
+\end{document}
